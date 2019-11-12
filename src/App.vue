@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <layout-composer
+      :displayComponents="displayComponents"
+      :config="config"
+      @change:config="onConfigChange($event)"
+      editable
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import config from '../config/layout.json'
+import 'vue-layout-composer/dist/vue-layout-composer.css'
+
+import Item from './components/Item'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      displayComponents: {
+        'Item': Item,
+      },
+      config,
+    }
+  },
+  methods: {
+    onConfigChange(event) {
+      console.log(event)
+    },
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
