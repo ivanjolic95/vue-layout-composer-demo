@@ -1,8 +1,7 @@
 <template>
   <lc-cell
-    :display="{
-      weight: 1,
-    }"
+    :key="config.id"
+    :display="config.display"
     :id="config.id"
     :config="config"
     editable
@@ -17,9 +16,20 @@
 export default {
   name: 'Item',
   props: {
-    config:     Object,
-    content:    String,
-    background: String,
+    initialConfig:  Object,
+    content:        String,
+    background:     String,
+  },
+  data() {
+    return {
+      config: {},
+    }
+  },
+  created() {
+    this.config = {
+      ...this.initialConfig,
+      hello: 'world'
+    }
   },
   computed: {
     style() {
@@ -31,6 +41,9 @@ export default {
     }
   },
   methods: {
+    getConfig() {
+      return this.config
+    },
     onClick() {
       console.log('clicked')
     }
