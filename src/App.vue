@@ -3,13 +3,14 @@
     <div class="site-title">Bugs of the City</div>
     <layout-composer
       :displayComponents="displayComponents"
-      :config="config"
+      :config="internalConfig"
+      @change:config="onConfigChange"
     />
   </div>
 </template>
 
 <script>
-import config from '../config/layout.json'
+import gql from 'graphql-tag'
 import 'vue-layout-composer/dist/vue-layout-composer.css'
 
 import MetodaTitle from './components/MetodaTitle'
@@ -19,6 +20,16 @@ import MetodaFigure from './components/MetodaFigure'
 
 export default {
   name: 'app',
+  apollo: {
+    config: {
+      query: gql`query {
+        configById(id: 1) {
+          content
+        }
+      }`,
+      update: data => data.configById,
+    }
+  },
   data() {
     return {
       displayComponents: {
@@ -27,8 +38,31 @@ export default {
         'Image':      MetodaImage,
         'Figure':     MetodaFigure,
       },
-      config,
     }
+  },
+  computed: {
+    internalConfig() {
+      return this.config && JSON.parse(this.config.content)
+    },
+  },
+  methods: {
+    onConfigChange(newConfig) {
+      console.log(newConfig)
+      // const mutation = gql`mutation configsUpdate ($id: Int!, $content: String!) {
+      //   updateConfig(id: $id, content: $content) {
+      //     id
+      //     content
+      //   }
+      // }`
+
+      // this.$apollo.mutate({
+      //   mutation,
+      //   variables: {
+      //     id: 1,
+      //     content: newConfig,
+      //   }
+      // }).then(data => console.log(data))
+    },
   },
 }
 </script>
