@@ -5,6 +5,8 @@
     :id="config.id"
     :config="config"
     :editable="editable && !contentEditable"
+    :layout-orientation="layoutOrientation"
+    :is-first-child="isFirstChild"
     @edit:content="contentEditable = true"
     @delete:content="$emit('delete:content')"
   >
@@ -22,9 +24,11 @@
 export default {
   name: 'MetodaImage',
   props: {
-    initialConfig:  Object,
-    url:            String,
-    editable:       Boolean,
+    initialConfig:      Object,
+    url:                String,
+    editable:           Boolean,
+    layoutOrientation:  String,
+    isFirstChild:       Boolean,
   },
   data() {
     return {

@@ -5,6 +5,8 @@
     :id="config.id"
     :config="config"
     :editable="editable && !contentEditable"
+    :layout-orientation="layoutOrientation"
+    :is-first-child="isFirstChild"
     @edit:content="editContent"
     @delete:content="$emit('delete:content')"
   >
@@ -29,9 +31,11 @@
 export default {
   name: 'MetodaTitle',
   props: {
-    initialConfig:  Object,
-    title:          String,
-    editable:       Boolean,
+    initialConfig:      Object,
+    title:              String,
+    editable:           Boolean,
+    layoutOrientation:  String,
+    isFirstChild:       Boolean,
   },
   data() {
     return {

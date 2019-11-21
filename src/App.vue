@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
+import config from '../config/layout.json'
 import 'vue-layout-composer/dist/vue-layout-composer.css'
 
 import MetodaTitle from './components/MetodaTitle'
@@ -20,16 +21,16 @@ import MetodaFigure from './components/MetodaFigure'
 
 export default {
   name: 'app',
-  apollo: {
-    config: {
-      query: gql`query {
-        configById(id: 1) {
-          content
-        }
-      }`,
-      update: data => data.configById,
-    }
-  },
+  // apollo: {
+  //   config: {
+  //     query: gql`query {
+  //       configById(id: 1) {
+  //         content
+  //       }
+  //     }`,
+  //     update: data => data.configById,
+  //   }
+  // },
   data() {
     return {
       displayComponents: {
@@ -42,7 +43,8 @@ export default {
   },
   computed: {
     internalConfig() {
-      return this.config && JSON.parse(this.config.content)
+      // return this.config && JSON.parse(this.config.content)
+      return config
     },
   },
   methods: {

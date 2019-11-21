@@ -5,6 +5,8 @@
     :id="config.id"
     :config="config"
     :editable="editable && !contentEditable"
+    :layout-orientation="layoutOrientation"
+    :is-first-child="isFirstChild"
     @edit:content="editContent"
     @delete:content="$emit('delete:content')"
   >
@@ -29,9 +31,11 @@
 export default {
   name: 'MetodaTextBlock',
   props: {
-    initialConfig:  Object,
-    text:           String,
-    editable:       Boolean,
+    initialConfig:      Object,
+    text:               String,
+    editable:           Boolean,
+    layoutOrientation:  String,
+    isFirstChild:       Boolean,
   },
   data() {
     return {
