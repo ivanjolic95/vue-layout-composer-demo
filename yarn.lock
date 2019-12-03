@@ -8285,10 +8285,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-layout-composer@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/vue-layout-composer/-/vue-layout-composer-0.1.1.tgz#b356c681be99bea0f70547b60c3440f937a7f9af"
-  integrity sha512-UpkB2W5WhcIBnf4vEonCHABAX5EXdbOVW4Bvi7RroA4vJMWhTwyFpziP3rpMOVpzVv99zEHLikNyyHw3c0VIeg==
+vue-layout-composer@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/vue-layout-composer/-/vue-layout-composer-0.1.5.tgz#932072bc94887239b94588b9e11cdd42ed826baf"
+  integrity sha512-fY+1lyW8qUHnFUh0PfwZljzniq4FObUnOrECPe1n05Piq5V9BRvJykE5qQINZfWC9FVl4toJBOLLiHK5W8QU8g==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.25"
     "@fortawesome/free-solid-svg-icons" "^5.11.2"

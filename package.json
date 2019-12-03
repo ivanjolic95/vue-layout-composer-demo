@@ -13,7 +13,7 @@
     "graphql": "^14.5.8",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0",
-    "vue-layout-composer": "^0.1.1"
+    "vue-layout-composer": "^0.1.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
