@@ -1,12 +1,9 @@
 <template>
   <lc-cell
+    v-bind="cellProps"
     :key="config.id"
     :display="config.display"
-    :id="config.id"
-    :config="config"
-    :editable="editable && !contentEditable"
-    :layout-orientation="layoutOrientation"
-    :is-first-child="isFirstChild"
+    :draggable="editable && !contentEditable"
     @edit:content="editContent"
     @delete:content="$emit('delete:content')"
   >
@@ -31,11 +28,13 @@
 export default {
   name: 'MetodaTextBlock',
   props: {
+    // vue-layout-composer props
     initialConfig:      Object,
-    text:               String,
     editable:           Boolean,
-    layoutOrientation:  String,
-    isFirstChild:       Boolean,
+    cellProps:          Object,
+
+    // custom props
+    text:               String,
   },
   data() {
     return {

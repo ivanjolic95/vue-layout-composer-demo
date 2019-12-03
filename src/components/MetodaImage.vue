@@ -1,12 +1,9 @@
 <template>
   <lc-cell
+    v-bind="cellProps"
     :key="config.id"
     :display="config.display"
-    :id="config.id"
-    :config="config"
-    :editable="editable && !contentEditable"
-    :layout-orientation="layoutOrientation"
-    :is-first-child="isFirstChild"
+    :draggable="editable && !contentEditable"
     @edit:content="contentEditable = true"
     @delete:content="$emit('delete:content')"
   >
@@ -24,11 +21,13 @@
 export default {
   name: 'MetodaImage',
   props: {
+    // vue-layout-composer props
     initialConfig:      Object,
-    url:                String,
     editable:           Boolean,
-    layoutOrientation:  String,
-    isFirstChild:       Boolean,
+    cellProps:          Object,
+
+    // custom props
+    url:                String,
   },
   data() {
     return {
